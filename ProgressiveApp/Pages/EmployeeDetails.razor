@@ -1,0 +1,68 @@
+﻿@page "/employeedetails/{id}"
+@page "/employeedetails"
+@inherits EmployeeDetailsBase
+
+@if (Employee is not null)
+{
+    <div class="row justify-content-center m-2">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    <h1>@Employee.FirstName @Employee.LastName</h1>
+                </div>
+
+                <div class="card-body text-center">
+                    <img class="card-img-top" src="@Employee.PhotoPath"
+                         @onmousemove="@Mouse_Move" />
+
+                    <h2>@Coordinates</h2>
+                    <h4>Employee ID : @Employee.EmployeeId</h4>
+                    <h4>Email : @Employee.Email</h4>
+                    <h4>Department : @Employee.Department.DepartmentName</h4>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/" class="btn btn-primary">Back</a>
+                    <a href="@($"editemployee/{Employee.EmployeeId}")"
+                       class="btn btn-primary m-1">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                    <TelerikButton @onclick="ShowWindow">Say Hello</TelerikButton>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <TelerikWindow @bind-Visible="@isVisible" Width="600px" Height="300px">
+        <WindowTitle>
+            <strong>Say Hello</strong>
+        </WindowTitle>
+        <WindowContent>
+            <div class="form-widgets">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5">
+                        <div class="form-group margin-top">
+                            Tell me something about me
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group margin-top">
+                            <TelerikTextArea @bind-Value="@TextAreaValue" @ref="@TextAreaRef"></TelerikTextArea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </WindowContent>
+        <WindowActions>
+            <WindowAction Name="Close"></WindowAction>
+        </WindowActions>
+    </TelerikWindow>
+}
+else
+{
+    <div class="spinner"></div>
+}
+@code {
+    public TelerikTextArea TextAreaRef { get; set; }
+    public string TextAreaValue { get; set; }
+}

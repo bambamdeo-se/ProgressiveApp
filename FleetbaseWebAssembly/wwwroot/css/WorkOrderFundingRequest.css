@@ -1,0 +1,247 @@
+﻿.k-necs1 .k-dropdown, span.k-numerictextbox, input.k-textbox, span.k-datepicker {
+    width: 15.4em;
+}
+
+#RegisComboBox span.k-icon {
+    background-image: url(/images/sprite-silver.png) !important;
+}
+
+.k-combobox .k-select {
+    border-style: none !important;
+    border-width: 0px !important;
+}
+
+.k-grid-list {
+    width: 100%;
+    max-width: none;
+    border-width: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    empty-cells: show;
+    outline: 0;
+    display: table;
+}
+
+    .k-grid-list > .k-item {
+        box-sizing: border-box;
+        display: table-row;
+        position: relative;
+    }
+
+.k-popup .k-item {
+    cursor: default;
+}
+
+.k-state-focused {
+    box-shadow: inset 0 0 0 1px grey;
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.2) 100%);
+}
+
+.k-grid-list > .k-item > .k-cell:first-child {
+    border-left-width: 0;
+}
+
+.k-grid-list > .k-item > .k-cell {
+    padding: 8px 16px;
+}
+
+.k-dropdowngrid-popup .k-grid-header .k-header, .k-grid-list > .k-item > .k-cell {
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #fff;
+}
+
+.k-dropdowngrid-popup .k-grid-header .k-header {
+    padding: 8px 16px;
+}
+
+.k-dropdowngrid-popup .k-grid-header table {
+    margin: 0 0 -1px 0;
+    width: 100%;
+    max-width: none;
+    border-width: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    empty-cells: show;
+    outline: 0;
+}
+
+.k-grid-list > .k-item > .k-cell, .k-grid-list > .k-item > .k-group, .k-grid-list > .k-item > .k-spacer-group {
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#RegisComboBox span.k-dropdown-wrap.k-state-active, .k-state-focused {
+    box-shadow: none !important;
+}
+
+#RegisComboBox .k-dropdown-wrap.k-state-default {
+    /*border: 0px !important;
+        border-radius: 0px !important;*/
+    /*background-color: rgb(221, 221, 221) !important;*/
+}
+
+#RegisComboBox span.k-select {
+    /*background-color: rgb(221, 221, 221) !important;*/
+    line-height: 2.5em !important;
+}
+
+input[name="Registrations_input"] {
+    /*background-color: rgb(221, 221, 221) !important;*/
+    font-size: 20px !important;
+    font-weight: 700;
+    padding: .150em 0 !important;
+}
+div.k-tabstrip > div.k-content {
+    padding: 0;
+}
+div.k-tabstrip > div.k-content div.row{
+    margin-left:5px;
+    margin-right:5px;
+    padding-bottom:5px;
+}
+div.k-tabstrip > div.k-content div.row > div.padd-0 {
+    padding:0px;
+}
+a.ShowHideFee > span {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: underline;
+}
+
+a.ShowHideFee:hover, a.ShowHideFee:visited, a.ShowHideFee:focus, a.ShowHideFee:active {
+    text-decoration: none;
+    color: #333;
+}
+input[name="VendorId_input"]{
+    width:90%;
+}
+#FundingRequestTabStrip ul li.k-state-active {
+    border-bottom: 0;
+}
+.ShowHideColumns > ul.dropdown-menu {
+    min-width: 230px !important;
+    left: 55px;
+}
+
+.dropdown-menu > li > span.columnTitle {
+    padding: 3px 10px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    width: 35%;
+    display: inline-block;
+}
+.dropdown-menu > li > span.FeeDetailsDrop {
+    width: 40%;
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.dropdown-menu > li > .chkShowHideColumn {
+    width: 10%;
+}
+li.columnsField {
+    padding: 0 10px;
+    width: 91%;
+}
+.k-grid tr td{
+    border-width:0px !important;
+    border-style:none !important;
+}
+.AddFeeCls {
+    font-size: 12px !important;
+    font-weight: bold !important;
+}
+
+.k-state-active .k-icon, .k-state-active .k-tool-icon, .k-state-active .k-grouping-dropclue, .k-state-active .k-drop-hint, .k-state-active .k-column-menu .k-sprite, .k-state-active .k-grid-mobile .k-resize-handle-inner:before, .k-state-active .k-grid-mobile .k-resize-handle-inner:after, .k-state-active .k-pager-numbers .k-current-page .k-link:after, .k-state-active .k-scheduler-toolbar > ul.k-scheduler-views > li.k-current-view > .k-link:after, .k-state-active .k-gantt-views > .k-current-view > .k-link:after {
+    background-image: url(../Images/sprite.png) !important;
+    border-color: transparent;
+}
+
+/*#dvFundingUnits div.k-grid-header-wrap table[role="grid"], #dvFundingUnits div.k-grid-content table{
+    width: 100% !important;
+}*/
+.text-right {
+    text-align: right;
+}
+.editCell{
+    text-align:right;
+}
+div.k-grid-content-locked table td:last-child {
+    border-right-width: 1px !important;
+    border-style: solid !important;
+}
+/*.k-grid-footer-wrap table {
+    width:100% !important;
+}*/
+.k-grid-footer-wrap table tbody td{
+    text-align:right !important;
+}
+.k-grid-footer-wrap{
+    border-width:0px !important;
+}
+div.k-grid-footer {
+    border-bottom-width: 0px !important;
+    padding-right: 0px !important;
+    border-right-width: 1px !important;
+}
+span.headerSpan {
+    font-size: 20px;
+    font-weight: bold;
+}
+/*#UnitFolderTreeView.k-treeview .k-treeview-lines .k-icon {
+    background-image: url(../Images/sprite.png) !important;
+}
+
+#UnitFolderTreeView > .k-group {
+    background: #004FA3;
+    color: #fff;
+}
+
+div#UnitFolderTreeView {
+    width: 20%;
+}
+
+#UnitFolderTreeView > .k-group > li span.k-icon.k-i-expand {
+    background-position: 0 -144px !important;
+}
+
+#UnitFolderTreeView > .k-group > li span.k-icon.k-i-collapse {
+    background-position: 0 -160px !important;
+}*/
+
+tr.k-state-selected > td > a{
+    color:#fff !important;
+}
+#category {
+    vertical-align: middle;
+}
+
+.refreshBtnContainer {
+    display: inline-block;
+}
+
+.toolbar {
+    float: left;
+}
+
+div#dvFundingUnits .k-grid-toolbar {
+    padding:0px !important;
+}

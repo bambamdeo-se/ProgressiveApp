@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html class="k-necs1 k-webkit k-webkit81">
+<head>
+    <link href="css/kendo.NECS2.css" rel="stylesheet" />
+    <link href="css/popup.css" rel="stylesheet" />
+    <!--<link href="css/kendo.necs1.css" rel="stylesheet" />-->
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/all.css" rel="stylesheet" />
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="css/plugins/bootstrap-checkbox/awesome-bootstrap-checkbox.min.css" rel="stylesheet" />
+    <link href="css/plugins/cropper/cropper.min.css" rel="stylesheet" />
+
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/Icons/favicon.ico?v=3">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/Images/Icons/ms-icon-144x144.png?v=2">
+    <meta name="theme-color" content="#ffffff">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/toastr/toastr.min.js"></script>
+    <script src="js/plugins/confirm/jquery.confirm.min.js"></script>
+    <script src="js/plugins/cropper/cropper.min.js"></script>
+    <script src="js/js.cookie.min.js"></script>
+    <script src="js/shell.min.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <link href="css/masterLayout.min.css" rel="stylesheet" />
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="js/select2.min.js"></script>
+    <script src="js/all.js"></script>
+    <link href="_content/all.css" rel="stylesheet" />
+    <script src="_content/telerik-blazor.min.js"></script>
+    <script>
+
+        window.setTenant = (tenantId) => {
+            window.localStorage.setItem('tenantId', tenantId);
+        };
+        window.getTenant = () => {
+            return window.localStorage.getItem('tenantId');
+        };
+        window.refreshData = (contextid) => {
+            window.localStorage.setItem('tenantId', contextid);
+            refreshPage(contextid);
+        };
+        function refreshPage() {
+            var URLParts = document.URL.split('/');
+            var redirect = URLParts[0] + "//" + URLParts[2];
+            redirect += "/fetchData"
+            window.location = redirect;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <app> Loading...</app>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload"> Reload</a>
+        <a class="dismiss"> 🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+</body>
+
+</html>

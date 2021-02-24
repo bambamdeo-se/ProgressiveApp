@@ -1,0 +1,26 @@
+﻿@inherits LayoutComponentBase
+@using FleetbaseWebAssembly.Pages
+<TelerikRootComponent>
+    <div>
+        <div class="header-top-menu">
+            <div class="container-fluid main-header">
+                <div class="m-b-sm">
+                    <Header></Header>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="menu-wrap" class="hidden-xs">
+                    <NavMenu></NavMenu>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="example" class="container-fluid animated fadeInDown" style="padding-top:10px;height: calc(100vh - 140px);overflow-y: auto;z-index:99;">
+
+            @Body
+            <Footer>
+            </Footer>
+        </div>
+
+    </div>
+</TelerikRootComponent>

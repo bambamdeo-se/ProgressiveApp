@@ -1,0 +1,53 @@
+﻿#JurisdictionId-list {
+    min-width: 205px !important;
+}
+
+.anchorclor {
+    color: #337ab7 !important;
+}
+
+.UTA {
+    display: inline-block;
+    margin: 0;
+    font-size: 22px;
+}
+
+.modal-header.close {
+    margin-top: 33px !important;
+}
+
+.TripLabels {
+    vertical-align: top;
+    line-height: 30px;
+}
+
+.unitNbrLbl {
+    width: 17% !important;
+}
+
+.quarterlbl {
+    width: 24%;
+}
+
+.vcrctrl {
+    position: absolute;
+    vertical-align: top;
+    line-height: 40px;
+    margin: -5px;
+}
+
+.span-vcr-ctrl {
+    padding-top: 3px;
+    padding-left: 16px;
+    padding-right: 10px;
+    background: #004fa3;
+    border-radius: 45px;
+    padding-bottom: 10px;
+    color: #fff;
+    margin-right: 5px;
+}
+
+a.span-vcr-ctrl:hover {
+    background-color: #b5bdcb;
+    color: #fff;
+}

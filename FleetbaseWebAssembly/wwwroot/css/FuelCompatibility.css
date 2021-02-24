@@ -1,0 +1,113 @@
+﻿.popUp {
+    width: 800px;
+    background: #ddd;
+    position: absolute;
+    top: 50px;
+    left: 500px;
+    z-index: 1000;
+    padding: 1px;
+}
+
+.title {
+    background: #004fa3;
+    color: #fff;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 7px;
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,.3) 0,rgba(255,255,255,0) 100%);
+    border-radius: 4px 4px 0 0;
+    float: left;
+}
+
+    .title h4 {
+        width: 94%;
+        float: left;
+        margin: 0;
+    }
+
+.k-window-action.k-link {
+    float: right;
+}
+
+.content-area {
+    background: #fff;
+    padding: 10px;
+    float: left;
+    width: 100%;
+}
+
+.fork-content {
+    width: 100%;
+    float: left;
+    /* background: #fff; */
+    padding: 18px 20px;
+    /* border: 1px solid #357fbf; */
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+    .fork-content div {
+        float: left;
+        margin-right: 15px;
+    }
+
+        .fork-content div label {
+            display: block;
+        }
+
+    .fork-content .select-box-main {
+        max-width: 250px;
+        max-height: 200px;
+        overflow: auto;
+        display: block;
+    }
+
+    .fork-content div {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .fork-content .select-box {
+        overflow: hidden;
+    }
+
+    .fork-content div {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .fork-content select[multiple] {
+        min-width: 306px;
+        min-height: 200px;
+    }
+
+    .fork-content div {
+        float: left;
+        margin-right: 15px;
+    }
+
+.arrow-box {
+    margin-top: 70px;
+    width: 126px;
+    margin-right: 0 !important;
+    text-align: center;
+}
+
+#MainThrobberImage, .MainThrobberImage {
+    position: fixed;
+    top: 400px;
+    left: 49%;
+    display: none;
+}
+
+.divOverlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 999;
+    opacity: 0.6;
+}

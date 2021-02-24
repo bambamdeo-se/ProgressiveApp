@@ -1,0 +1,77 @@
+﻿@page "/AdminMenu"
+
+
+<TelerikMenu Data="@MenuItems"
+             UrlField="@nameof(MenuItem.Page)"
+             ItemsField="@nameof(MenuItem.SubSectionList)"
+             TextField="@nameof(MenuItem.Section)">
+</TelerikMenu>
+
+@code {
+    public List<MenuItem> MenuItems { get; set; }
+
+    public class MenuItem
+    {
+        public string Section { get; set; }
+        public string Icon { get; set; }
+        public string Page { get; set; }
+        public List<MenuItem> SubSectionList { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        MenuItems = new List<MenuItem>()
+{
+            new MenuItem()
+            {
+                Section = "Accounting",
+            SubSectionList = new List<MenuItem>()
+    {
+                    new MenuItem()
+                    {
+                        Section = "Imports",
+                        Page = "company/overview",
+                        SubSectionList =new List<MenuItem>()
+                        {
+                            new MenuItem()
+                            {
+                                Section = "Bank Activity",
+                                Page = "company/overview"
+                            }
+                        }
+                    }
+                }
+                },
+            new MenuItem()
+        {
+            Section = "Setup",
+                SubSectionList = new List<MenuItem>()
+    {
+                    new MenuItem()
+                    {
+                        Section = "Domain",
+                        Page = "consultingservices"
+                    },
+                    new MenuItem()
+                    {
+                        Section = "Company",
+                        Page = "consultingservices"
+                    },
+                    new MenuItem()
+                    {
+                        Section = "Territory",
+                        Page = "consultingservices"
+                    },
+                    new MenuItem()
+                    {
+                        Section = "Location",
+                        Page = "consultingservices"
+                    }
+
+                }
+            }
+
+    };
+        base.OnInitialized();
+    }
+}

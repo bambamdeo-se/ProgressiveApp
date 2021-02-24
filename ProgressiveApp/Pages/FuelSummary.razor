@@ -1,0 +1,104 @@
+﻿@page  "/fuelSummary"
+@inherits FuelSummaryBase
+
+
+<div class="well k-content">
+    <h2 class="ra-well-title">
+        Fuel Summarys
+    </h2>
+    <button class="btn btn-primary" @onclick="@MyExternalExportTrigger">Export Grid Data</button>
+    <hr />
+
+    <div class="well k-content">
+        <div id="claimList">
+            <div style="padding:20px;">
+                @if (IsLoading || exportClicked)
+                {
+                    <div class="loading-panel-wrapper" style="text-align:center">
+                        <div class="loading-panel-overlay"></div>
+                        <div class="container spinner" style="text-align:center">
+                        </div>
+
+                    </div>
+                }
+
+                <TelerikGrid Data="FuelList" SelectionMode="GridSelectionMode.Single"
+                             Pageable="true" PageSize="200" Sortable="true"
+                             Height="550px"
+                             FilterMode="GridFilterMode.FilterMenu" Class="@GridClass">
+                    <GridToolBar>
+                        <GridCommandButton Class="@ExportBtnClass" OnClick="@ShowLoader" Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
+                        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
+                    </GridToolBar>
+
+                    <GridExport>
+                        <GridExcelExport FileName="fuelSummaryExport" AllPages="@ExportAllPages" />
+                    </GridExport>
+                    <GridColumns>
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.UnitNbr) )" Title="Unit Nbr" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.Vin))" Title="Vin" Sortable="true" Filterable="true" Lockable="false" Locked="false" Width="200px" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.Jurisdiction))" Title="Jurisdiction" Sortable="false" Filterable="false" Lockable="false" Locked="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.PurchaseDate))" Title="Purchase Date"DisplayFormat="{0:MM/dd/yyyy}" Sortable="false" Width="150px" Filterable="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.Quantity) )" Title="Quantity" DisplayFormat="{0:C}" Filterable="false" Sortable="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.FuelType))" Title="Fuel Type" Filterable="false" Sortable="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.TrxNbr))" Title="Trx Nbr" Filterable="false" Sortable="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.Cost))" Title="Cost" DisplayFormat="{0:C}" Sortable="false" Filterable="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.ErrorMessage))" Title="Error Message" Sortable="false" Filterable="false" />
+                    </GridColumns>
+                </TelerikGrid>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .customBlazorDropdown {
+        padding-right: 0px;
+        background-color: transparent;
+    }
+
+        .customBlazorDropdown .k-header {
+            background-color: transparent;
+        }
+
+    .k-necs1 .well {
+        background-color: #dddddd;
+        border-color: #c3c3c3;
+        border-radius: 6px;
+        padding: 10px;
+    }
+    .ExcelExportButton{
+        display:none;
+    }
+   
+    div > div > div.k-toolbar.k-grid-toolbar > label {
+        display: none;
+    }
+    
+    .loading-panel-wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: 1234567;
+    }
+
+        .loading-panel-wrapper .loading-panel-overlay {
+            background: lightgray;
+            position: absolute;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+
+        .loading-panel-wrapper .container {
+            position: absolute;
+            display: flex;
+            top: 40%;
+            left: 40%;
+            margin: -50px 0 0 -50px;
+        }
+</style>

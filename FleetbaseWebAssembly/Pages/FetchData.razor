@@ -1,0 +1,19 @@
+﻿@page "/fetchdata"
+@using FleetbaseWebAssembly.Models;
+@inherits FetchDataBase
+
+
+<TelerikGrid Data="@gridData" SelectionMode="GridSelectionMode.Single"
+             SelectedItemsChanged="@((IEnumerable<Location> locations) => OnSelect(locations))"
+             Pageable="true" PageSize="20"
+             Height="450px"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn Field="@(nameof(Location.Id))" Title="Id" />
+        <GridColumn Field="@(nameof(Location.Name))" Title="Name" Sortable="true" />
+        <GridColumn Field="@(nameof(Location.Breadcrumb))" Title="Bread Crumb" Sortable="true" />
+    </GridColumns>
+</TelerikGrid>
+<Popup @ref="PopupModel"></Popup>
+
+

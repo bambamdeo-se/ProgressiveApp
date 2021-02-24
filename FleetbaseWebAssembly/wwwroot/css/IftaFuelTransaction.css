@@ -1,0 +1,106 @@
+﻿/*.k-grid .k-grid-header .k-header .k-link {
+            height: auto;
+        }*/
+
+.k-grid .k-grid-header .k-header {
+    white-space: normal;
+}
+
+#itemGrid tbody td {
+    border-width: 0 0 0 1px !important;
+    border-style: solid !important;
+    border-color: #004fa3 !important;
+}
+/*#IFTAUnitDetailList{
+            width : 550px !important;
+        }*/
+
+h2 {
+    margin-top: 0px;
+}
+
+.k-grid tr:hover {
+    background: #fff !important;
+}
+
+tr.greyBackground:hover {
+    background-color: #dddddd !important;
+}
+
+.k-grid tr.k-state-selected:hover {
+    background-color: #004fa3 !important;
+}
+
+.greyBackground {
+    background-color: #dddddd !important;
+}
+
+.selectedRowBackground {
+    background-color: #004fa3 !important
+}
+
+div#itemGrid .k-pager-wrap .k-widget {
+    margin: 0px !important;
+}
+
+div#itemGrid span.k-pager-sizes {
+    padding: 0px !important;
+    padding-top: 1px !important;
+}
+
+div#itemGrid .k-pager-info {
+    float: left !important;
+    padding: 2px 8.333em !important;
+}
+
+#itemGrid .k-pager-wrap.k-grid-pager > ul.k-pager-numbers > li a.k-link {
+    display: none !important;
+}
+
+.control-label {
+    padding-top: 0px !important;
+    text-align: left !important;
+}
+
+#IFTAUnitDetailsInfo .col-lg-3 {
+    width: 27% !important;
+}
+
+#IFTAUnitDetailsInfo .form-group {
+    margin-bottom: 0px !important;
+}
+
+.k-pager-wrap .k-dropdown {
+    width: 5.5em !important;
+}
+
+#IFTAUnitDetail {
+    width: auto !important;
+}
+
+#itemGrid .k-grid-header table tr, #IFTAFuelTransactionGrid .k-grid-header table tr {
+    font-size: 12px;
+}
+
+#itemGrid .k-grid-content table tr, #IFTAFuelTransactionGrid .k-grid-content table tr {
+    font-size: 12px;
+}
+
+#IFTAFuelTransactionGrid .k-grid-content .k-textbox {
+    padding: 0px;
+    text-indent: 2px;
+}
+#IFTAFuelTransactionGrid .k-grid-content .text-box {
+    padding: 0px;
+    text-indent: 2px;
+    background-color: #fff;
+    color: #515967;
+    height: 2.43em;
+    line-height: 1.6em;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+/*#IFTAFuelTransactionGrid .k-grid-content table td {
+        padding-left: 0px;
+    }*/

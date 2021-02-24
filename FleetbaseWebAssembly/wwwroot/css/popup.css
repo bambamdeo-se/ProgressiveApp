@@ -1,0 +1,28 @@
+﻿.k-tabstrip .k-content.k-state-active {
+    background-color: #fff;
+    color: #515967;
+}
+
+.k-necs1 .padding0 {
+    padding: 0px;
+}
+
+.k-necs1 .margin-top {
+    margin-top: 24px;
+}
+.k-necs1 .modal-body, .k-necs1 .modal-body .well {
+    padding: 0px;
+    margin-bottom:0px;
+}
+.k-necs1 .k-tabstrip {
+    display: block;
+}
+.k-necs1 .modal-header {
+    padding: 8px;
+    background-color: #004fa3;
+    color: #ffffff;
+}
+
+.k-necs1 .modal-header .close {
+    margin-top: -16px;
+}

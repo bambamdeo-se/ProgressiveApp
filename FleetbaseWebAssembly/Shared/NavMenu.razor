@@ -1,0 +1,194 @@
+﻿<TelerikMenu Data="@MenuItems"
+             IconClassField="CustomFontIcon"
+             UrlField="@nameof(MenuItem.Page)"
+             ItemsField="@nameof(MenuItem.SubSectionList)"
+             TextField="@nameof(MenuItem.Section)">
+</TelerikMenu>
+@*https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName*@
+@code {
+    public List<MenuItem> MenuItems { get; set; }
+
+    public class MenuItem
+    {
+        public string Section { get; set; }
+        public string Icon { get; set; }
+        public string CustomFontIcon { get; set; }
+        public string Page { get; set; }
+        public List<MenuItem> SubSectionList { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        MenuItems = new List<MenuItem>()
+{
+            new MenuItem()
+            {
+                Section = "Accounting",
+                CustomFontIcon = "fa fa-chart-line",
+                //Icon="<span class="k-icon k-i-pencil/"></span>",
+                SubSectionList = new List<MenuItem>()
+{
+                    new MenuItem()
+                    {
+                        Section = "Imports",
+                        //Page = "company/overview",
+                        SubSectionList =new List<MenuItem>()
+        {
+                            new MenuItem()
+                            {
+                                Section = "Bank Activity",
+                                //Page = "company/overview"
+                            }
+                        }
+                    }
+                }
+            },
+            new MenuItem()
+        {
+            Section = "Setup",
+            CustomFontIcon="fa fa-cog",
+
+            SubSectionList = new List<MenuItem>()
+{
+                    new MenuItem()
+                    {
+                        Section = "Domain",
+                        //Page = "consultingservices"
+                    },
+                    new MenuItem()
+                    {
+                        Section = "Company",
+                        //Page = "consultingservices"
+                    },
+                    new MenuItem()
+                    {
+                        Section = "Territory",
+                        //Page = "consultingservices"
+                    },
+                    new MenuItem()
+                    {
+                        Section = "Location",
+                        Page = "fetchdata"
+                    }
+
+                }
+                },
+            new MenuItem()
+        {
+            Section = "Security",
+            CustomFontIcon="fa fa-shield-alt",
+            SubSectionList = new List<MenuItem>()
+{
+                    new MenuItem()
+                    {
+                        Section = "Security Groups",
+                       // Page = "company/overview",
+                    },
+                     new MenuItem()
+                    {
+                        Section = "Users",
+                        //Page = "company/overview",
+                    },
+                      new MenuItem()
+                    {
+                        Section = "Work Order User",
+                        //Page = "company/overview",
+                    }
+                }
+            },
+            new MenuItem()
+        {
+            Section = "Utility",
+            CustomFontIcon="fa fa-wrench",
+            SubSectionList = new List<MenuItem>()
+{
+                    new MenuItem()
+                    {
+                        Section = "Location Import",
+                        //Page = "company/overview",
+
+                    },
+                     new MenuItem()
+                    {
+                        Section = "Tax Rate",
+                        //Page = "company/overview",
+
+                    }
+                }
+            },
+            new MenuItem()
+        {
+            Section = "Sys Admin",
+            CustomFontIcon="fa fa-lock",
+            SubSectionList = new List<MenuItem>()
+{
+                    new MenuItem()
+                    {
+                        Section = "Business Units",
+                        //Page = "company/overview",
+                    },
+                     new MenuItem()
+                    {
+                        Section = "Modules",
+                        //Page = "company/overview",
+                    },
+                      new MenuItem()
+                    {
+                        Section = "Roles",
+                        //Page = "company/overview",
+                    },
+                       new MenuItem()
+                    {
+                        Section = "Partners",
+                        //Page = "company/overview",
+                    },
+                     new MenuItem()
+                    {
+                        Section = "Login History",
+                        //Page = "company/overview",
+                    },
+                      new MenuItem()
+                    {
+                        Section = "Runtime Errors",
+                        //Page = "company/overview",
+                    },
+                        new MenuItem()
+                    {
+                        Section = "Lists",
+                        //Page = "company/overview",
+                        SubSectionList = new List<MenuItem>()
+                {
+                            new MenuItem()
+                    {
+                        Section = "Tenant Type",
+                        //Page = "company/overview",
+                    },
+                            new MenuItem()
+                    {
+                        Section = "Accounting Basic Type",
+                        //Page = "company/overview",
+                    },
+                            new MenuItem()
+                    {
+                        Section = "Business Strucure Type",
+                        //Page = "company/overview",
+                    },
+                            new MenuItem()
+                    {
+                        Section = "Unit Of Measures",
+                        //Page = "company/overview",
+                    },
+                            new MenuItem()
+                    {
+                        Section = "Registration Type",
+                        //Page = "company/overview",
+                    }
+                        }
+                    }
+                }
+            }
+    };
+
+        base.OnInitialized();
+    }
+}

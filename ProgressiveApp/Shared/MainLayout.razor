@@ -1,0 +1,90 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager _navigationManager
+@inject IJSRuntime js
+@inject IIndexedDbFactory DbFactory
+@using ProgressiveApp.Model
+@using ProgressiveApp.Pages
+<head>
+
+</head>
+<TelerikRootComponent>
+    <div class="k-necs1">
+        @*<AuthorizeView>
+                <Authorized>
+                    <div class="top-row px-4">
+                        <h4><b>Hello, @context.User.Identity.Name</b></h4> &nbsp;
+                        <button class="btn btn-danger">Logout</button>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <div class="top-row px-4">
+                        <button class="btn btn-primary" @onclick="LoginUser">Login</button>
+                    </div>
+                </NotAuthorized>
+            </AuthorizeView>*@
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <div class="main">
+
+                <div class="content px-4">
+                    @Body
+                </div>
+            </div>
+        </div>
+    </div>
+</TelerikRootComponent>
+<Confirm @ref="ShowTimer" ConfirmationTitle=@($"Timeout Popup ")
+         ShowDeleteButton="false"
+         ConfirmationMessage=@($"Going to Timeout in ")>
+</Confirm>
+@code
+{
+    List<Student> Students = new List<Student>();
+
+    protected ConfirmBase ShowTimer { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        using (var db = await this.DbFactory.Create<ContextDb>())
+        {
+            Students = db.Student.ToList();
+            if(Students.Count()==0)
+            {
+                db.Student.Add(new Student()
+                {
+                    FirstName = "Achal",
+                    LastName = "Parashar"
+                });
+                await db.SaveChanges();
+            }
+
+            Students = db.Student.ToList();
+        }
+
+        await js.InitializeInactivityTimer(DotNetObjectReference.Create(this));
+    }
+
+    [JSInvokable]
+    public void Logout()
+    {
+        _navigationManager.NavigateTo("/Login", true);
+    }
+    [JSInvokable]
+    public async void ClosePopup()
+    {
+
+        await js.InitializeInactivityTimer(DotNetObjectReference.Create(this));
+        ShowTimer.Hide();
+    }
+
+    [JSInvokable]
+    public void TimerPopup()
+    {
+        ShowTimer.Show();
+    }
+
+
+}

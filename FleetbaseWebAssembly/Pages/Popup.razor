@@ -1,0 +1,202 @@
+﻿@*@page "/popUp/{id}"
+@page "/popUp"*@
+@inherits PopupBase
+@using FleetbaseWebAssembly.Models
+
+@using System.Collections.ObjectModel
+<div class="modal @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Location Details</h5>
+                <button type="button" class="close" data-dismiss="modal" @onclick="() => Close()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div name="ActualContent" class="content-area padding-00">
+                    <div class="well k-content">
+                        <div class="TaxContent">
+                            <TelerikTabStrip TabPosition="Telerik.Blazor.TabPosition.Top">
+                                <TabStripTab Title="Location">
+                                    <div class="form-widgets">
+                                        <div class="col-lg-6 col-md-6">
+                                            <!-- Territory -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0">Territory</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+
+                                                </div>
+
+                                                <span id="TerritoryName">@Location.ParentName</span>&nbsp;&nbsp<span id="TerritoryLink"><a class="p-xs" @click="openTerritoryWin" title="Select a Territory" data-toggle="tooltip"><i class="fa fa-pencil-alt"></i></a><a id="removeFromTerritoryButton" class="p-xs" title="Remove from Territory" @click="removeFromTerritory" data-toggle="tooltip" v-show="isShowRemoveTerritoryHidden"><i class="fa fa-times"></i></a></span>
+                                            </div>
+                                            <br />
+                                            <!-- Location Name -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="LocationName">Name</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" class="form-control" @bind="Location.Name" tabindex="1" />
+                                                    <input type="hidden" class="form-control" @bind="Location.Id" />
+
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Is Active -->
+                                            <div class="form-group checkbox checkbox-primary margin-top padding0" style="padding-left:16px;">
+                                                <input id="LocationIsActive" v-model="LocationIsActive" tabindex="2" type="checkbox" checked />
+                                                <label class="control-label m-l-xs" for="LocationIsActive">Is Active</label>
+                                            </div>
+                                            <!-- Closed Date -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="DateClosed">Closed</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <TelerikDatePicker @bind-Value="Location.DateClosed" Format="MM/dd/yyyy">
+                                                    </TelerikDatePicker>
+
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Closed By -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0">Closed By</label>
+                                                <div id="ClosedByName" class="col-lg-8 col-md-8 padding0"></div>
+                                            </div>
+                                            <br />
+                                            <!-- Address -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="Address1">Address</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" class="form-control" style="width:auto" tabindex="7" @bind="Location.Address1" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="Address2"></label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" class="form-control" style="width:auto" tabindex="8" @bind="Location.Address2" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- City -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="City">City</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" class="form-control" tabindex="9" @bind="Location.City" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Postal Code -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="PostalCode">Postal Code</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" class="form-control" tabindex="11" @bind="Location.PostalCode" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="LocationNbr">Location Nbr</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" name="LocationNbr" @bind="Location.LocationNbr" class="form-control" tabindex="2" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Description-->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="Description">Description</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" name="LocationNbr" @bind="Location.Description" class="form-control" tabindex="2" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Manager -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="ManagerId">Manager</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    @*<TelerikDropDownList Data="@DropDownManager"
+                                                        TextField="Name"
+                                                        ValueField="Id"
+                                                        @bind-Value="(Location.ManagerId)" />*@
+                                                    <input type="hidden" @bind="Location.ManagerId" class="form-control" tabindex="2" />
+
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Wynne -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="WynneNbr">Wynne #</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" @bind="Location.Wynne" name="WynneNbr" class="form-control" tabindex="5" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- Lawson -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="Lawson">Lawson</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" @bind="Location.Lawson" name="Lawson" class="form-control" tabindex="6" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- State -->
+                                            <div class="form-group margin-top" style="margin-top:106px">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="StateOrProvinceId">State</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <TelerikDropDownList Data="@DataSourceArrayStates"
+                                                                         TextField="Name"
+                                                                         ValueField="Id"
+                                                                         @bind-Value="Location.StateOrProvinceId" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <!-- County -->
+                                            <div class="form-group margin-top">
+                                                <label class="control-label col-lg-4 col-md-4 padding0" for="County">County</label>
+                                                <div class="col-lg-8 col-md-8 padding0">
+                                                    <input type="text" @bind="Location.County" class="form-control" tabindex="12" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="ActionbtnsCls" style="margin-top: 5px;">
+                                                <button type="button" class="btn btn-secondary" style="float:right;" data-dismiss="modal" @onclick="() => Close()">Close</button>
+                                                <button type="button" class="btn btn-primary" @onclick="() => SaveLocation(Location)" style="float:right;">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </TabStripTab>
+                                <TabStripTab Title="Contact">
+
+                                    <TelerikGrid Data="@contactGridData" SelectionMode="GridSelectionMode.Single"
+                                                 Pageable="true" PageSize="20"
+                                                 Height="300px"
+                                                 FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu">
+                                        <GridColumns>
+                                            <GridColumn Field="@(nameof(Contact.FullName) )" Title="Name" />
+                                            <GridColumn Field="@(nameof(Contact.JobTitle))" Title="Title" Sortable="true" />
+                                            <GridColumn Field="@(nameof(Contact.EmailAddress))" Title="Email" Sortable="true" />
+                                        </GridColumns>
+                                    </TelerikGrid>
+
+                                </TabStripTab>
+
+                            </TelerikTabStrip>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if (ShowBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
+
+

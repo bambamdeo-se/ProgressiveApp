@@ -1,0 +1,196 @@
+﻿.margin-0 {
+    margin-right: 25px !important;
+    margin-left: 0px !important;
+}
+
+.k-popup > .k-group-header, .k-popup > .k-virtual-wrap > .k-group-header {
+    text-align: left !important;
+    font-weight: bold;
+}
+
+#dropDownDDL {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #000;
+    background: #fff;
+}
+
+#operation-menu {
+    margin-top: 15px !important;
+    right: 30px !important;
+}
+
+.k-widget.k-popup {
+    background-color: #004fa3 !important;
+}
+
+.k-context-menu .k-state-hover > .k-link {
+    color: #263248 !important;
+    background-color: gainsboro !important;
+}
+
+.UTA {
+    display: inline-block;
+    margin: 0;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.SelectTaxAccount {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+ul.SelectTaxAccount li {
+    float: left;
+    margin-left: 10px;
+}
+
+.dSelectTaxAccountDiv {
+    display: inline-block;
+}
+
+.select2-selection__placeholder {
+    float: left !important;
+}
+
+.select2-container--focus {
+    background-color: #fff !important;
+    transition: box-shadow .15s ease-out !important;
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,.298039) 0,rgba(255,255,255,0) 100%) !important;
+    background-position: 50% 50% !important;
+    border-color: #004fa3 !important;
+    box-shadow: 0 0 16px 0 hsla(0, 0%, 0%, 0.6) !important;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #515967 !important;
+    height: 2.43em !important;
+    text-indent: .8em !important;
+    line-height: 1.6em !important;
+    padding: 2px .3em !important;
+}
+
+.select2-container--default .select2-results__option .select2-results__option {
+    font-size: 15px;
+    padding: 0 5px;
+    border-width: 0px;
+    border-style: solid;
+    border-radius: 2px;
+    line-height: 1.8em;
+    min-height: 1.8em;
+}
+
+.select2-container--default .select2-results__group {
+    font-size: 15px;
+}
+
+.select2-results__options {
+    padding: 5px !important;
+    padding-top: 0px !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #b6bdca !important;
+}
+#ddlOperationList-list > .k-group-header, #ddlOperationList-list > .k-virtual-wrap > .k-group-header {
+    background: #bebec3;
+    color: #fff;
+    padding-right: 26.8456px;
+}
+
+#ddlOperationList-list > .k-group-header, #ddlOperationList-list > .k-virtual-wrap > .k-group-header {
+    text-align: right;
+}
+
+#ddlOperationList-list .k-list .k-item > .k-group, #ddlOperationList-list > .k-group-header, #ddlOperationList-list > .k-virtual-wrap > .k-group-header {
+    text-transform: uppercase;
+    font-size: .857em;
+}
+
+#ddlOperationList-list > .k-group-header, #ddlOperationList-list > .k-virtual-wrap > .k-group-header {
+    padding-right: 22px;
+}
+
+#ddlOperationList-list .k-list > .k-item.k-first {
+    padding-top: 2em;
+}
+
+#ddlOperationList-list .k-item.k-first {
+    position: relative;
+}
+
+
+.k-list > .k-item.k-first > .k-group {
+    height: 2em;
+    left: 0;
+}
+
+#ddlOperationList-list .k-list .k-item > .k-group {
+    background: #bbbbc6;
+    color: #fff;
+    border-bottom-left-radius: 3px;
+}
+
+#ddlOperationList-list .k-list .k-item > .k-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 .5em;
+    line-height: 1.8;
+}
+
+#ddlOperationList-list .k-list .k-item > .k-group, #ddlOperationList-list > .k-group-header, .k-popup > .k-virtual-wrap > .k-group-header {
+    text-transform: uppercase;
+    font-size: .857em;
+}
+
+#ddlOperationList-list .k-list .k-item > .k-group {
+    top: -1px;
+}
+
+.k-listbox .k-item, #ddlOperationList-list .k-list .k-item {
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 0 4px;
+}
+
+.k-fieldselector .k-list .k-item, .k-item.k-drag-clue,
+.k-list-optionlabel,
+.k-listbox .k-item,
+#ddlOperationList-list .k-list .k-item,
+#ddlOperationList-list > .k-virtual-wrap > .k-group-header {
+    padding: 1px 5px 1px 20px;
+    line-height: 1.8em;
+    min-height: 1.8em;
+}
+
+#ddlOperationList-list >
+.k-group-header {
+    padding: 1px 5px 1px 5px;
+    line-height: 1.8em;
+    min-height: 1.8em;
+}
+
+#ddlOperationList-list .k-list > .k-item.k-first {
+    padding-top: 2em !important;
+}
+
+#ddlOperationList-list .k-list > .k-state-hover.k-first {
+    padding-top: calc(2em - 1px) !important;
+}
+
+#ddlOperationList-list .k-list > .k-item.k-first > .k-group {
+    height: 2em !important;
+    left: 0 !important;
+}
+
+#ddlOperationList-list .k-list > .k-state-hover.k-first > .k-group {
+    top: -1px !important;
+    left: -1px !important;
+}

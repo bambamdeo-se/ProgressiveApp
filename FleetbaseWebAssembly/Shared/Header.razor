@@ -1,0 +1,114 @@
+﻿@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
+
+<div id="timeBanner" style="display:none;">
+    <p><i class="fa fa-warning"></i> Still there? We’re about to log you out in <b><label id="time" style="font-size:16pt"></label></b> seconds.<a id="yes" href="#" class="logout-btn" style="padding-left:15px;padding-right:15px">Yes</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="logo"><a id="logoUrl"><img src="/Images/FB_grayRD_blueRGB.png" width="200" /></a></div>
+    </div>
+    <div class="col-md-2">
+        <div class="vehicle-service-icons">
+            <span id="waffleText"></span>
+            <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                <i class="fa fa-th"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href='/Index/Home'><i class="fa fa-road"></i>Vehicle Services</a>
+                </li>
+                <li>
+                    <a href='/DriverServices'><i class="fa fa-male"></i>Driver Services</a>
+                </li>
+                <li>
+                    <a href='/TaxRecoveryHome/TaxRecovery'><i class="fa fa-money-bill-alt"></i>Tax Recovery Services</a>
+                </li>
+                <li>
+                    <a href="/Root/Home"><i class="fa fa-cogs"></i>Administration</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="dropdown profile-element pull-right">
+            <span class="pull-right p-l-sm">
+
+                @if (!string.IsNullOrEmpty(userImagePath))
+                {
+                    <img src="@userImagePath" class="profile-pic img-circle" alt="@string.Format(" {0} {1}", FirstName, LastName)" height="48" />
+                }
+                else
+                {
+                    <img src="/Images/gallery/missing-avatar.jpg" class="profile-pic img-circle" alt="@string.Format(" {0} {1}", FirstName, LastName)" height="48" />
+
+                }
+            </span>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="clear">
+                    <span class="block m-t-xs p-l-m pull-left">
+                        <strong class="font-bold">@string.Format("{0} {1}", FirstName, LastName)<b class="caret"></b></strong>
+                    </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated  m-t-xs" style="margin-top: -15px;margin-right: 55px;">
+                <li><a id="lnkProfile" class="menuLink">Profile</a></li>
+                <li><a id="lnkChangepass" class="menuLink">Change Password</a></li>
+
+            </ul>
+        </div>
+
+
+
+        <!-- messages module -->
+        <ul id="messages" class="nav navbar-top-links navbar-right" style="display:inline-flex;">
+            <li class="dropdown">
+               
+            </li>
+            <li>
+                @*class="menuLink"*@
+                <a id="helpLink" href="javascript:void();">
+                    <i class="fa fa-question-circle"></i>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-top-links navbar-right" style="display:inline-flex;">
+            <TelerikDropDownList Data="@tenants"
+                                 TextField="TenantName"
+                                 ValueField="TenantId"
+                                 @bind-Value="selectedValue"
+                                 OnChange="@TenantChange" />
+
+        </ul>
+
+
+    </div>
+</div>
+@code {
+    public string FirstName = "Achal";
+    public string LastName = "Parashar";
+    public string userImagePath = "";
+    private IEnumerable<Tenant> tenants;
+    private IEnumerable<Tenant> displayData;
+    int userId = 1178;
+    public class Tenant
+    {
+        public int? TenantId { get; set; }
+        public string TenantName { get; set; }
+        public int TenantTypeId { get; set; }
+    }
+    int? selectedValue { get; set; } = null;
+    protected override async Task OnInitializedAsync()
+    {
+        this.tenants = await Http.GetJsonAsync<IEnumerable<Tenant>>($"GetTenants?userId={userId}");
+        this.selectedValue=Convert.ToInt32(await JSRuntime.InvokeAsync<string>("getTenant"));
+    }
+    private  void TenantChange(object theUserInput)
+    {
+        JSRuntime.InvokeVoidAsync("refreshData", theUserInput.ToString());
+
+    }
+}

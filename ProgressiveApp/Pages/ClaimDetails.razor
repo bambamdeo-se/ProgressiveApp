@@ -1,0 +1,155 @@
+﻿@page "/claimDetails/{Id}"
+@page "/claimDetails"
+
+@inherits ClaimDetailsBase
+
+
+@if (ClaimData is not null)
+{
+    @*<p>Component 2 Property: <b>@StateContainer.Property</b></p>*@
+    <div class="modal-body">
+        <div name="ActualContent" class="content-area padding-00">
+            <div class="TaxContent">
+                <EditForm Model="@ClaimData">
+                    <h3>Claim Details:@ClaimData.Id</h3>
+                    <div class="well k-content">
+                        <div class="form-widgets">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group margin-top">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">Company</label>
+                                        <TelerikComboBox Data="@TenantList" TextField="TenantName"
+                                                         Width="160px" Class="customBlazorDropdown"
+                                                         ValueField="TenantId" @bind-Value="ClaimData.Company">
+                                        </TelerikComboBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group margin-top">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">Tax Form</label>
+                                        <TelerikComboBox Data="@TaxFormList" TextField="Name"
+                                                         Width="160px" Class="customBlazorDropdown"
+                                                         ValueField="Id" @bind-Value="ClaimData.TaxFormId">
+                                        </TelerikComboBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group margin-top">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">Filed With</label>
+                                        <TelerikTextBox @bind-Value="ClaimData.FiledWith" Class="col-lg-6 col-md-6 padding0" Width="50em"></TelerikTextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">Begin Date</label>
+                                        <TelerikDatePicker @bind-Value="ClaimData.BegDate" Class="col-lg-6 col-md-6 padding0" Width="50em"></TelerikDatePicker>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group margin-top">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">End Date</label>
+                                        <TelerikDatePicker @bind-Value="ClaimData.EndDate" Class="col-lg-6 col-md-6 padding0" Width="50em"></TelerikDatePicker>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group margin-top">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">Date Filed</label>
+                                        <TelerikDatePicker @bind-Value="ClaimData.DateFiled" Class="col-lg-6 col-md-6 padding0" Width="50em"></TelerikDatePicker>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="form-group margin-top">
+                                        <label class="control-label col-lg-4 col-md-4 padding0">Amount Filed</label>
+                                        <TelerikNumericTextBox @bind-Value="ClaimData.AmountFiled" Arrows="false" Class="col-lg-6 col-md-6 padding0" Width="50em"></TelerikNumericTextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6" style="text-align:center">
+                                    <div class="ActionbtnsCls" style="float:right">
+                                        <a href="@($"claimList")"
+                                           class="btn btn-primary m-1">Cancel</a>
+                                        <button type="button" class="btn btn-primary m-1" style="float: left; margin: 5px;">Save </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-widgets">
+                        <div class="form-group margin-top">
+                            <div class="col-lg-12 col-md-12" style="padding-top:40px;">
+                                <TelerikTabStrip TabPosition="Telerik.Blazor.TabPosition.Top">
+
+                                    <TabStripTab Title="ClaimTranscript">
+
+                                        <TelerikGrid Data="@ClaimTranscriptList" SelectionMode="GridSelectionMode.Single"
+                                                     Pageable="true" PageSize="20"
+                                                     Height="300px"
+                                                     FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu">
+                                            <GridColumns>
+                                                <GridColumn Field="@(nameof(ClaimTranscript.Id) )" Title="Id" Filterable="true" Sortable="true" Width="80px" />
+                                                <GridColumn Field="@(nameof(ClaimTranscript.ClaimStatus))" Title="Claim Status" Sortable="false" Filterable="false" Width="200px" />
+                                                <GridColumn Field="@(nameof(ClaimTranscript.CreatedBy))" Title="Created By" Sortable="false" Filterable="false" Width="150px" />
+                                                <GridColumn Field="@(nameof(ClaimTranscript.EffectiveDate))" Title="Effective Date" DisplayFormat="{0:MM/dd/yyyy}" Sortable="false" Filterable="false" Width="100px" />
+                                                <GridColumn Field="@(nameof(ClaimTranscript.Notes))" Title="Notes" Sortable="false" Filterable="false" Width="150px" />
+
+                                            </GridColumns>
+                                        </TelerikGrid>
+
+                                    </TabStripTab>
+                                    <TabStripTab Title="Claim Hierarchy">
+
+                                        <TelerikGrid Data="@ClaimHierarchyList" SelectionMode="GridSelectionMode.Single"
+                                                     Pageable="true" PageSize="20"
+                                                     Height="300px"
+                                                     FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu">
+                                            <GridColumns>
+                                                <GridColumn Field="@(nameof(ClaimHierarchy.Id) )" Title="Id" Filterable="true" Sortable="true" Width="80px" />
+                                                <GridColumn Field="@(nameof(ClaimHierarchy.HierarchyNode))" Title="Hierarchy Node" Sortable="false" Filterable="false" Width="100px" />
+                                                <GridColumn Field="@(nameof(ClaimHierarchy.Description))" Title="Description" Sortable="false" Filterable="false" Width="200px" />
+                                                <GridColumn Field="@(nameof(ClaimHierarchy.RefundAmount))" Title="Refund Amount" DisplayFormat="{0:C}" Sortable="false" Filterable="false" Width="120px" />
+                                                <GridColumn Field="@(nameof(ClaimHierarchy.CorrectedAmount))" Title="Corrected Amount" DisplayFormat="{0:C}" Sortable="false" Filterable="false" Width="100px" />
+
+                                            </GridColumns>
+                                        </TelerikGrid>
+                                    </TabStripTab>
+
+                                </TelerikTabStrip>
+                            </div>
+                        </div>
+                    </div>
+
+                </EditForm>
+            </div>
+        </div>
+    </div>
+
+}
+<style>
+    .k-grid td {
+        border-style: none !important;
+    }
+
+    .customBlazorDropdown {
+        padding-right: 0px;
+        background-color: transparent;
+    }
+
+        .customBlazorDropdown .k-header {
+            background-color: transparent;
+        }
+
+    .k-necs1 .well {
+        background-color: #dddddd;
+        border-color: #c3c3c3;
+        border-radius: 6px;
+        padding: 10px;
+    }
+</style>
+
+
