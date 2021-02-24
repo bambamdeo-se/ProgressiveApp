@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30001.183
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetbaseWebAssembly", "FleetbaseWebAssembly\FleetbaseWebAssembly.csproj", "{5C59BD96-A44E-408E-B2EF-0A06140308BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressiveApp", "ProgressiveApp\ProgressiveApp.csproj", "{087ED9CA-7453-4370-BD9E-2164ED3DECFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{AEC82184-7C4F-4726-8E42-A8C27DDCE7F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5C59BD96-A44E-408E-B2EF-0A06140308BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C59BD96-A44E-408E-B2EF-0A06140308BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C59BD96-A44E-408E-B2EF-0A06140308BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{087ED9CA-7453-4370-BD9E-2164ED3DECFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{087ED9CA-7453-4370-BD9E-2164ED3DECFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{087ED9CA-7453-4370-BD9E-2164ED3DECFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{087ED9CA-7453-4370-BD9E-2164ED3DECFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEC82184-7C4F-4726-8E42-A8C27DDCE7F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC82184-7C4F-4726-8E42-A8C27DDCE7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC82184-7C4F-4726-8E42-A8C27DDCE7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC82184-7C4F-4726-8E42-A8C27DDCE7F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
