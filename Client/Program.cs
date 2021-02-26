@@ -35,7 +35,7 @@ namespace Client
             builder.Services.AddScoped(sp =>
             new HttpClient
             {
-                BaseAddress = new Uri("http://71ebeeff5c5d.ngrok.io")
+                BaseAddress = new Uri("http://71ebeeff5c5d.ngrok.io/")
             });
             builder.Services.AddTelerikBlazor();
             //builder.Services.AddScoped<IIndexedDbFactory, IndexedDbFactory>();
