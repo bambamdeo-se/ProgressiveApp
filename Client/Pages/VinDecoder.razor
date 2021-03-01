@@ -1,0 +1,56 @@
+@page "/VinDecoder"
+@using Client.Services
+@inherits VinDecoderBase
+
+<h3>VinDecoder</h3>
+   
+<TelerikTabStrip TabPosition="Telerik.Blazor.TabPosition.Top">
+
+    <TabStripTab Title="VinDecodeExtended">
+
+        <TelerikGrid Data="@Vinlist" SelectionMode="GridSelectionMode.Single"
+                     Pageable="true" PageSize="20" Sortable="true"
+                     Height="500px"
+                     Width="1400px"
+                     FilterMode="GridFilterMode.FilterMenu"
+                     Class="customGrid">
+
+            <GridColumns>
+                <GridColumn Field="@(nameof(VinDecode.MakeId) )" Title="Make Id" Width="100px" />
+                <GridColumn Field="@(nameof(VinDecode.Make) )" Title="Make" Width="150px" Sortable="false" Filterable="false" />
+                <GridColumn Field="@(nameof(VinDecode.FuelType))" Title="Fuel Type" Sortable="false" Filterable="false" Width="150px" />
+                <GridColumn Field="@(nameof(VinDecode.Model))" Title="Model" Sortable="false" Filterable="false" Width="100px" />
+                <GridColumn Field="@(nameof(VinDecode.ManufacturerId) )" Title="Manufacturer Id" Filterable="false" Width="100px" Sortable="false" />
+                <GridColumn Field="@(nameof(VinDecode.Manufacturer))" Title="Manufacturer" Sortable="true" Width="250px" Filterable="false" />
+                <GridColumn Field="@(nameof(VinDecode.VIN))" Title="VIN" Sortable="false" Filterable="false" Width="150px" />
+                <GridColumn Field="@(nameof(VinDecode.Trim) )" Title="Trim" Filterable="false" Width="100px" Sortable="false" />
+                <GridColumn Field="@(nameof(VinDecode.BodyClass))" Title="Body Class" Sortable="true" Width="200px" Filterable="false" />
+            </GridColumns>
+        </TelerikGrid>
+    </TabStripTab>
+    <TabStripTab Title="Vin Decode Batch Value">
+        <TelerikGrid Data="@VinBatches" SelectionMode="GridSelectionMode.Single"
+                     Pageable="true" PageSize="20" Sortable="true"
+                     Height="500px"
+                     Width="1400px"
+                     FilterMode="GridFilterMode.FilterMenu"
+                     Class="customGrid">
+
+            <GridColumns>
+                <GridColumn Field="@(nameof(VinBatch.AirBagLocFront) )" Title="AirBagLocFront" Sortable="false" Filterable="false" Width="180px" />
+                <GridColumn Field="@(nameof(VinBatch.AirBagLocSide) )" Title="AirBagLocside" Sortable="false" Filterable="false" Width="180px" />
+                <GridColumn Field="@(nameof(VinBatch.FuelTypePrimary))" Title="FuelType" Sortable="false" Filterable="false" Width="100px" />
+                <GridColumn Field="@(nameof(VinBatch.PlantCountry))" Title="PlantCountry" Sortable="false" Filterable="false" Width="120px" />
+                <GridColumn Field="@(nameof(VinBatch.PlantCity) )" Title="PlantCity" Filterable="false" Width="120px" Sortable="false" />
+                <GridColumn Field="@(nameof(VinBatch.BodyClass))" Title="BodyClass" Sortable="true" Width="200px" Filterable="false" />
+                <GridColumn Field="@(nameof(VinBatch.EngineCylinders) )" Title="EngineCylinders"Sortable="false" Filterable="false" Width="100px" />
+                <GridColumn Field="@(nameof(VinBatch.EngineHP))" Title="EngineHP" Sortable="false" Filterable="false" Width="100px" />
+                <GridColumn Field="@(nameof(VinBatch.ErrorCode))" Title="ErrorCode" Sortable="false" Filterable="false" Width="150px" />
+                <GridColumn Field="@(nameof(VinBatch.ErrorText) )" Title="ErrorText" Filterable="false" Width="150px" Sortable="false" />
+                <GridColumn Field="@(nameof(VinBatch.Doors))" Title="Doors" Sortable="false" Width="200px" Filterable="false" />
+            </GridColumns>
+        </TelerikGrid>
+        </TabStripTab>
+</TelerikTabStrip>
+
+

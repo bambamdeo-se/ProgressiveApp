@@ -4,44 +4,33 @@
 @inject IIndexedDbFactory DbFactory
 @using Client.Model
 @using Client.Pages
-<head>
 
-</head>
 <TelerikRootComponent>
-    <div class="k-necs1">
-        @*<AuthorizeView>
-                <Authorized>
-                    <div class="top-row px-4">
-                        <h4><b>Hello, @context.User.Identity.Name</b></h4> &nbsp;
-                        <button class="btn btn-danger">Logout</button>
-                    </div>
-                </Authorized>
-                <NotAuthorized>
-                    <div class="top-row px-4">
-                        <button class="btn btn-primary" @onclick="LoginUser">Login</button>
-                    </div>
-                </NotAuthorized>
-            </AuthorizeView>*@
-        <div class="page">
-            <div class="sidebar">
-                <NavMenu />
-            </div>
+        <div class="k-necs1">
 
-            <div class="main">
+            <div class="page">
+                <div class="sidebar">
+                    <NavMenu />
+                </div>
 
-                <div class="content px-4">
-                    @Body
+                <div class="main">
+                    <div class="top-row px-4">
+                        <UserStatus />
+                    </div>
+                    <div class="content px-4">
+                        @Body
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</TelerikRootComponent>
-<Confirm @ref="ShowTimer" ConfirmationTitle=@($"Timeout Popup ")
-         ShowDeleteButton="false"
-         ConfirmationMessage=@($"Going to Timeout in ")>
-</Confirm>
+    </TelerikRootComponent>
+    <Confirm @ref="ShowTimer" ConfirmationTitle=@($"Timeout Popup ")
+             ShowDeleteButton="false"
+             ConfirmationMessage=@($"Going to Timeout in ")>
+    </Confirm>
 @code
 {
+
     List<Student> Students = new List<Student>();
 
     protected ConfirmBase ShowTimer { get; set; }
@@ -51,7 +40,7 @@
         using (var db = await this.DbFactory.Create<ContextDb>())
         {
             Students = db.Student.ToList();
-            if(Students.Count()==0)
+            if (Students.Count() == 0)
             {
                 db.Student.Add(new Student()
                 {
@@ -67,11 +56,7 @@
         await js.InitializeInactivityTimer(DotNetObjectReference.Create(this));
     }
 
-    [JSInvokable]
-    public void Logout()
-    {
-        _navigationManager.NavigateTo("/Login", true);
-    }
+
     [JSInvokable]
     public async void ClosePopup()
     {

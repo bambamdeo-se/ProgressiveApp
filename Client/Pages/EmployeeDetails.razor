@@ -1,7 +1,7 @@
 ﻿@page "/employeedetails/{id}"
 @page "/employeedetails"
 @inherits EmployeeDetailsBase
-
+@attribute [Authorize]
 @if (Employee is not null)
 {
     <div class="row justify-content-center m-2">

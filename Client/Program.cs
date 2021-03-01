@@ -1,5 +1,7 @@
 //using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Blazor.IndexedDB.WebAssembly;
+using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,22 +25,39 @@ namespace Client
             builder.Services.AddScoped<IIndexedDbFactory, IndexedDbFactory>();
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddOptions();
-            //builder.Services.AddHttpClient<IClaimService, ClaimService>(client=> {
-            //    client.BaseAddress = new Uri("http://localhost:61224/api/");
-            //});
+            builder.Services.AddAuthorizationCore();
+          
+            builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+
+            builder.Services.AddBlazoredLocalStorage();
+            builder.Services.AddHttpClient<IVinService, VinService>(client =>
+            {
+                client.BaseAddress = new Uri("https://vpic.nhtsa.dot.gov/api");
+            });
+            builder.Services.AddCors(options =>
+             {
+                 options.AddDefaultPolicy(builder =>
+                 builder.WithOrigins("https://vpic.nhtsa.dot.gov/api/")
+                 .AllowAnyHeader()
+                 .AllowCredentials()
+                 .AllowAnyMethod());
+             });
+            
             builder.Services.AddTransient<IClaimService, ClaimService>();
-            builder.Services.AddAuthorizationCore(); 
             builder.Services.AddTransient<IEmployeeService, EmployeeService>();
             builder.Services.AddTransient<ILoginService, LoginService>();
             builder.Services.AddAutoMapper(typeof(EmployeeProfile));
             builder.Services.AddSingleton<StateContainer>();
+            builder.Services.AddHttpClient<ILoginService, LoginService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:4975/");
+            });
             builder.Services.AddScoped(sp =>
             new HttpClient
             {
-                BaseAddress = new Uri("https://71ebeeff5c5d.ngrok.io/")
+                BaseAddress = new Uri("https://eadcd5a04faf.ngrok.io/api/")
             });
             builder.Services.AddTelerikBlazor();
-            //builder.Services.AddScoped<IIndexedDbFactory, IndexedDbFactory>();
             await builder.Build().RunAsync();
         }
     }

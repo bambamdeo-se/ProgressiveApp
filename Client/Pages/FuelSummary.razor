@@ -1,4 +1,5 @@
 ﻿@page  "/fuelSummary"
+@*@attribute [Authorize]*@
 @inherits FuelSummaryBase
 
 
@@ -38,7 +39,7 @@
                         <GridColumn Field="@(nameof(UnitImportActivitySession.UnitNbr) )" Title="Unit Nbr" />
                         <GridColumn Field="@(nameof(UnitImportActivitySession.Vin))" Title="Vin" Sortable="true" Filterable="true" Lockable="false" Locked="false" Width="200px" />
                         <GridColumn Field="@(nameof(UnitImportActivitySession.Jurisdiction))" Title="Jurisdiction" Sortable="false" Filterable="false" Lockable="false" Locked="false" />
-                        <GridColumn Field="@(nameof(UnitImportActivitySession.PurchaseDate))" Title="Purchase Date"DisplayFormat="{0:MM/dd/yyyy}" Sortable="false" Width="150px" Filterable="false" />
+                        <GridColumn Field="@(nameof(UnitImportActivitySession.PurchaseDate))" Title="Purchase Date" DisplayFormat="{0:MM/dd/yyyy}" Sortable="false" Width="150px" Filterable="false" />
                         <GridColumn Field="@(nameof(UnitImportActivitySession.Quantity) )" Title="Quantity" DisplayFormat="{0:C}" Filterable="false" Sortable="false" />
                         <GridColumn Field="@(nameof(UnitImportActivitySession.FuelType))" Title="Fuel Type" Filterable="false" Sortable="false" />
                         <GridColumn Field="@(nameof(UnitImportActivitySession.TrxNbr))" Title="Trx Nbr" Filterable="false" Sortable="false" />
@@ -68,14 +69,15 @@
         border-radius: 6px;
         padding: 10px;
     }
-    .ExcelExportButton{
-        display:none;
+
+    .ExcelExportButton {
+        display: none;
     }
-   
+
     div > div > div.k-toolbar.k-grid-toolbar > label {
         display: none;
     }
-    
+
     .loading-panel-wrapper {
         position: absolute;
         display: flex;

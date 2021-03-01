@@ -1,7 +1,7 @@
 ﻿@page "/Component1"
 @inject StateContainer StateContainer
 @implements IDisposable
-
+@attribute [Authorize]
 <h1>Component 1</h1>
 
 <p>Component 1 Property: <b>@StateContainer.Property</b></p>

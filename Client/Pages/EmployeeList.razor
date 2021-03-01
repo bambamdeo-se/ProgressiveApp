@@ -1,4 +1,5 @@
 ﻿@page "/"
+@attribute [Authorize]
 @inherits EmployeeListBase
 
 <h3>Employee List</h3>
@@ -14,7 +15,7 @@ else
     <div class="card-deck">
         @foreach (var employee in Employees)
         {
-            <DisplayEmployee Employee="employee" 
+            <DisplayEmployee Employee="employee"
                              OnEmployeeSelection="EmployeeSelectionChanged"
                              OnEmployeeDeleted="EmployeeDeleted"
                              ShowFooter="ShowFooter">

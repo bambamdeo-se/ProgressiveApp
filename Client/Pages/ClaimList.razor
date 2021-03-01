@@ -2,7 +2,7 @@
 @using Client.Model
 @inherits ClaimListBase
 @using Telerik.DataSource.Extensions
-
+@*@attribute [Authorize]*@
 <div class="well k-content">
     <h2 class="ra-well-title">
         Claim List
@@ -24,7 +24,7 @@
             </div>
             <div style="padding:20px;">
                 <TelerikContextMenu @ref="@ContextMenu" Data="@MenuItems" OnClick="@((MenuItem item) => OnItemClick(item))"></TelerikContextMenu>
-       
+
                 <TelerikGrid Data="ClaimGrid" SelectionMode="GridSelectionMode.Single"
                              Pageable="true" PageSize="20" Sortable="true"
                              Height="500px"
@@ -37,14 +37,14 @@
                              Class="customGrid">
 
                     <GridColumns>
-                        <GridColumn Field="@(nameof(Claim.Id) )" Locked="true" Title="Action" Width="120px" >
+                        <GridColumn Field="@(nameof(Claim.Id) )" Locked="true" Title="Action" Width="120px">
                             <Template>
-                                <a  Icon="rows" id="@(nameof(Claim.Id))"  @onmouseup="HandleMouseUp" >
+                                <a Icon="rows" id="@(nameof(Claim.Id))" @onmouseup="HandleMouseUp">
                                     <TelerikIcon Icon="rows" />
-                                </a>                     
+                                </a>
                             </Template>
                         </GridColumn>
-                        <GridColumn Field="@(nameof(Claim.Id) )"  Locked="true" Title="ClaimId" Width="150px" OnCellRender="@OnCellRenderHandler" />
+                        <GridColumn Field="@(nameof(Claim.Id) )" Locked="true" Title="ClaimId" Width="150px" OnCellRender="@OnCellRenderHandler" />
                         <GridColumn Field="@(nameof(Claim.Company))" Title="Company" Sortable="false" Filterable="false" Width="150px" />
                         <GridColumn Field="@(nameof(Claim.TaxForm))" Title="TaxForm" Sortable="false" Filterable="false" Width="100px" />
                         <GridColumn Field="@(nameof(Claim.FiledWith) )" Title="Filed With" Filterable="false" Width="100px" Sortable="false" />
@@ -71,27 +71,30 @@
         padding-right: 0px;
         background-color: transparent;
     }
-    .customBlazorDropdown .k-header {
+
+        .customBlazorDropdown .k-header {
             background-color: transparent;
-     }
+        }
 
     .k-grid td {
         border-style: none;
     }
-    .k-grid-content-sticky td{
-        border-style:solid !important;
-        border:1px;
+
+    .k-grid-content-sticky td {
+        border-style: solid !important;
+        border: 1px;
     }
 
     .highlightCellBackGroud {
         background-color: lightyellow;
     }
+
     .border {
-        border: 0px none !important;        
+        border: 0px none !important;
         border-right: 1px solid !important;
-        border-color: #004FA3 !important;  
+        border-color: #004FA3 !important;
     }
-   
+
 
     .k-necs1 .well {
         background-color: #dddddd;
@@ -108,7 +111,7 @@
         background-color: #eee;
     }
 
-    .customGrid tr.k-master-row:hover, .customGrid tr.k-master-row:hover td.k-grid-content-sticky {
-        background-color: #fdf005;
-    }
+        .customGrid tr.k-master-row:hover, .customGrid tr.k-master-row:hover td.k-grid-content-sticky {
+            background-color: #fdf005;
+        }
 </style>
