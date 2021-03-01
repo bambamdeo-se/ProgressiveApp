@@ -42,19 +42,19 @@
 
   <ItemGroup>
     <Reference Include="Blazored.LocalStorage">
-      <HintPath>..\FleetbaseWebAssembly\Lib\Blazored.LocalStorage.dll</HintPath>
+      <HintPath>Lib\Blazored.LocalStorage.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\FleetbaseWebAssembly\Lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Blazor">
-      <HintPath>..\FleetbaseWebAssembly\Lib\Telerik.Blazor.dll</HintPath>
+      <HintPath>Lib\Telerik.Blazor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.DataSource">
-      <HintPath>..\FleetbaseWebAssembly\Lib\Telerik.DataSource.dll</HintPath>
+      <HintPath>Lib\Telerik.DataSource.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Recurrence">
-      <HintPath>..\FleetbaseWebAssembly\Lib\Telerik.Recurrence.dll</HintPath>
+      <HintPath>Lib\Telerik.Recurrence.dll</HintPath>
     </Reference>
   </ItemGroup>
 
