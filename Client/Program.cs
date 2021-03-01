@@ -55,7 +55,7 @@ namespace Client
             builder.Services.AddScoped(sp =>
             new HttpClient
             {
-                BaseAddress = new Uri("https://eadcd5a04faf.ngrok.io/api/")
+                BaseAddress = new Uri("https://5ae8883add8f.ngrok.io/api/")
             });
             builder.Services.AddTelerikBlazor();
             await builder.Build().RunAsync();

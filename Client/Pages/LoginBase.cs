@@ -30,12 +30,15 @@ namespace Client.Pages
             User response = await LoginService.LoginUser(model);
             if (response != null && !string.IsNullOrEmpty(response.Token))
             {
+                Console.WriteLine(response.Token);
                 await storageService.SetItemAsync("User", response);
                 await authenticationStateProvider.GetAuthenticationStateAsync();
                 NavigationManager.NavigateTo("/edit", true);
             }
-            else if(response != null &&!string.IsNullOrEmpty(response.Message))
+            else if(response != null && !string.IsNullOrEmpty(response.Message))
                 Message = response.Message;
+
+            Console.WriteLine(response.Message);
         }
     }
 }
