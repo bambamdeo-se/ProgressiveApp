@@ -55,7 +55,7 @@ namespace Client
             builder.Services.AddScoped(sp =>
             new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:60000/api/")
+                BaseAddress = new Uri("http://fleetbaseapidev.necsfueltaxes.com/api/")
             });
             builder.Services.AddTelerikBlazor();
             await builder.Build().RunAsync();
