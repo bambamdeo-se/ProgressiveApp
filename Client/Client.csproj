@@ -43,7 +43,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Blazor">
+    <Reference Include="Telerik.UI.for.Blazor">
       <HintPath>Lib\Telerik.Blazor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.DataSource">
